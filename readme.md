@@ -34,7 +34,7 @@ py -m pip install PyPDF2
 Jalankan program di terminal / PowerShell:
 
 ```bash
-py hitung_pdf.py
+py hitunghalamanpdf.py
 ```
 
 ### 3. Masukkan Lokasi Folder
@@ -75,7 +75,7 @@ Total seluruh halaman: 6
 ```
 PDF-Page-Counter/
 │
-├── hitung_pdf.py       # Script utama
+├── hitunghalamanpdf.py       # Script utama
 ├── README.md           # Dokumentasi proyek
 └── requirements.txt    # (opsional) daftar library yang dibutuhkan
 ```
