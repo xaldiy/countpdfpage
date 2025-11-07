@@ -41,8 +41,8 @@ py hitung_pdf.py
 
 Saat diminta, ketik atau paste lokasi folder tempat file PDF kamu disimpan. Contoh:
 
+`Masukkan lokasi folder yang berisi file PDF:`
 ```
-Masukkan lokasi folder yang berisi file PDF:
 D:\Arsip\Dokumen\Laporan Oktober 2025
 ```
 
