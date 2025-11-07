@@ -1,10 +1,18 @@
 import os
 from PyPDF2 import PdfReader
 
+def show_banner():
+    print("=" * 50)
+    print("💀  A L D I   W A S   H E R E  💀".center(50))
+    print("=" * 50)
+    print()
+
+show_banner()
+
 folder_path = input("Masukkan lokasi folder yang berisi file PDF: ").strip('"').strip("'")
 
 if not os.path.isdir(folder_path):
-    print(f"Folder tidak ditemukan: {folder_path}")
+    print(f"\n🚫 Folder tidak ditemukan: {folder_path}")
     exit()
 
 total_pages = 0
@@ -24,7 +32,8 @@ for filename in os.listdir(folder_path):
         except Exception as e:
             print(f"Gagal membaca {filename}: {e}")
 
-print("-" * 40)
+print("-" * 50)
 print(f"Total file PDF: {file_count}")
 print(f"Total seluruh halaman: {total_pages}")
-
+print("-" * 50)
+print("\n🔥 Selesai! Terhitung oleh skrip legendaris milik ALDI 💪")
