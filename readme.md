@@ -76,8 +76,8 @@ Total seluruh halaman: 6
 PDF-Page-Counter/
 │
 ├── hitunghalamanpdf.py       # Script utama
-├── README.md           # Dokumentasi proyek
-└── requirements.txt    # (opsional) daftar library yang dibutuhkan
+├── README.md                 # Dokumentasi proyek
+└── requirements.txt          # (opsional) daftar library yang dibutuhkan
 ```
 
 ---
