@@ -1,10 +1,8 @@
 import os
 from PyPDF2 import PdfReader
 
-# Minta input lokasi folder dari user
 folder_path = input("Masukkan lokasi folder yang berisi file PDF: ").strip('"').strip("'")
 
-# Cek apakah folder valid
 if not os.path.isdir(folder_path):
     print(f"Folder tidak ditemukan: {folder_path}")
     exit()
@@ -29,3 +27,4 @@ for filename in os.listdir(folder_path):
 print("-" * 40)
 print(f"Total file PDF: {file_count}")
 print(f"Total seluruh halaman: {total_pages}")
+
