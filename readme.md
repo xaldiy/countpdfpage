@@ -24,7 +24,11 @@ Lalu install library yang dibutuhkan:
 ```bash
 pip install PyPDF2
 ```
+Karena kadang `pip` itu gak dikenali, bisa coba install pakai perintah ini:
 
+```bash
+py -m pip install PyPDF2
+```
 ### 2. Jalankan Script
 
 Jalankan program di terminal / PowerShell:
