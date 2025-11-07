@@ -1,39 +1,72 @@
 import os
+from datetime import datetime
 from PyPDF2 import PdfReader
-
 def show_banner():
-    print("=" * 50)
-    print("💀  A L D I   W A S   H E R E  💀".center(50))
-    print("=" * 50)
+    print("=" * 60)
+    print("💀  A L D I   W A S   H E R E  💀".center(60))
+    print("=" * 60)
     print()
-
 show_banner()
-
-folder_path = input("Masukkan lokasi folder yang berisi file PDF: ").strip('"').strip("'")
-
-if not os.path.isdir(folder_path):
-    print(f"\n🚫 Folder tidak ditemukan: {folder_path}")
-    exit()
-
-total_pages = 0
-file_count = 0
-
-print("\n🔍 Sedang menghitung jumlah halaman setiap file...\n")
-
-for filename in os.listdir(folder_path):
-    if filename.lower().endswith(".pdf"):
-        file_path = os.path.join(folder_path, filename)
-        try:
-            reader = PdfReader(file_path)
-            num_pages = len(reader.pages)
-            print(f"{filename}: {num_pages} halaman")
-            total_pages += num_pages
-            file_count += 1
-        except Exception as e:
-            print(f"Gagal membaca {filename}: {e}")
-
-print("-" * 50)
-print(f"Total file PDF: {file_count}")
-print(f"Total seluruh halaman: {total_pages}")
-print("-" * 50)
-print("\n🔥 Selesai! Terhitung oleh skrip legendaris milik ALDI 💪")
+folders = []
+while True:
+    folder_path = input("Masukkan lokasi folder yang berisi file PDF: ").strip('"').strip("'")
+    if not folder_path:
+        if folders:
+            break
+        else:
+            print("🚫 Harus masukkan minimal satu folder!")
+            continue
+    if not os.path.isdir(folder_path):
+        print(f"🚫 Folder tidak ditemukan: {folder_path}")
+        continue
+    if folder_path in folders:
+        print("⚠️ Folder ini sudah dimasukkan sebelumnya.")
+    else:
+        folders.append(folder_path)
+        print("✅ Folder ditambahkan!")
+    tambah = input("Masukkan lokasi folder lain (tekan ENTER jika sudah semua): ").strip('"').strip("'")
+    if not tambah:
+        break
+    else:
+        if os.path.isdir(tambah):
+            if tambah not in folders:
+                folders.append(tambah)
+                print("✅ Folder ditambahkan!")
+            else:
+                print("⚠️ Folder ini sudah dimasukkan sebelumnya.")
+        else:
+            print(f"🚫 Folder tidak ditemukan: {tambah}")
+print("\n🔍 Sedang menghitung jumlah lembar setiap file...\n")
+results = []
+for folder in folders:
+    total_pages = 0
+    file_count = 0
+    folder_name = os.path.basename(folder.rstrip("/\\"))
+    print(f"\n📁 {folder_name}")
+    print("\\")
+    for filename in os.listdir(folder):
+        if filename.lower().endswith(".pdf"):
+            file_path = os.path.join(folder, filename)
+            try:
+                reader = PdfReader(file_path)
+                num_pages = len(reader.pages)
+                print(f"{filename}: {num_pages} lembar")
+                total_pages += num_pages
+                file_count += 1
+            except Exception as e:
+                print(f"Gagal membaca {filename}: {e}")
+    results.append({
+        "folder": folder_name,
+        "file_count": file_count,
+        "total_pages": total_pages
+    })
+print("\n\n🔥 HASIL AKHIR 🔥\n")
+for result in results:
+    print(f"{result['folder']}")
+    print("-" * 50)
+    print(f"Total file PDF: {result['file_count']}")
+    print(f"Total seluruh lembar: {result['total_pages']}")
+    print("-" * 50)
+    print()
+print("📅 Dihitung otomatis oleh script legendaris: ALDI WAS HERE 💪")
+print(f"🕓 {datetime.now().strftime('%A, %d %B %Y')}")
