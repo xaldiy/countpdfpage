@@ -90,7 +90,7 @@ PDF-Page-Counter/
 * Bisa dimodifikasi agar hasilnya disimpan ke file `.txt` atau `.csv`.
 
 ---
-(https://i.ibb.co.com/23FZsNJT/image.png)
+
 ## 🧑‍💻 Pembuat
 
 **Aldi Setiadi Putra**
