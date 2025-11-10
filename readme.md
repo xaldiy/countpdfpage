@@ -3,6 +3,7 @@
 Script Python sederhana untuk menghitung **total jumlah halaman dari semua file PDF** di dalam sebuah folder.
 Cocok buat kamu yang sering arsip, laporan, atau scanning dokumen 📚
 
+![Screenshoot](https://i.ibb.co.com/23FZsNJT/image.png)
 ---
 
 ## 🚀 Fitur
@@ -89,7 +90,7 @@ PDF-Page-Counter/
 * Bisa dimodifikasi agar hasilnya disimpan ke file `.txt` atau `.csv`.
 
 ---
-
+(https://i.ibb.co.com/23FZsNJT/image.png)
 ## 🧑‍💻 Pembuat
 
 **Aldi Setiadi Putra**
