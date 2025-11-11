@@ -1,50 +1,85 @@
+
+````markdown
 # 🧾 PDF Page Counter (Total Halaman Otomatis)
 
-Script Python sederhana untuk menghitung **total jumlah halaman dari semua file PDF** di dalam sebuah folder.
-Cocok buat kamu yang sering arsip, laporan, atau scanning dokumen 📚
+Script Python canggih untuk menghitung **jumlah halaman dari semua file PDF** di dalam folder dan subfolder secara otomatis.  
+Cocok buat kamu yang sering arsip dokumen, laporan, atau scanning data besar 📚  
 
-![Screenshoot](https://upld.zone.id/uploads/sriqd61iq/screenshot-2025-11-10-132954.webp)
----
-
-## 🚀 Fitur
-
-* Hitung jumlah halaman dari **banyak file PDF sekaligus**
-* Minta lokasi folder secara **interaktif** saat dijalankan
-* Tampilkan hasil total file dan total halaman secara otomatis
-* Deteksi error kalau ada file PDF yang rusak atau tidak bisa dibaca
+![Screenshot](https://upld.zone.id/uploads/sriqd61iq/screenshot-2025-11-11-091918.webp)
 
 ---
 
-## 🛠️ Cara Penggunaan
+## 🚀 Fitur Terbaru
 
-### 1. Instalasi Dependensi
+✅ Hitung jumlah halaman dari semua PDF (termasuk dalam subfolder)  
+✅ Filter berdasarkan **tanggal pembuatan (created date)**  
+✅ Rekap tambahan untuk file yang **dimodifikasi** di tanggal yang sama  
+✅ Deteksi otomatis file **hilang, duplikat, dan anomali nama**  
+✅ Output hasil **berwarna dan terformat rapi di terminal**  
+✅ Menampilkan **total per folder + total keseluruhan di bagian akhir**
 
-Pastikan kamu sudah menginstal [Python 3](https://www.python.org/downloads/).
-Lalu install library yang dibutuhkan:
+---
+
+## 🧠 Cara Kerja Singkat
+
+1. Script akan menanyakan **folder root utama** yang berisi subfolder PDF atau folder utama yang berisi file pdf.  
+2. Kamu bisa pilih untuk **scan semua subfolder** atau hanya folder utama.  
+3. Pilih **filter tanggal**:
+   - Hari ini, atau  
+   - Tanggal tertentu (misal: `07-11-2025`)  
+4. Script akan menampilkan hasil:
+   - Total file PDF berdasarkan **tanggal pembuatan**
+   - Total file yang **dimodifikasi**
+   - Total halaman
+   - File hilang, duplikat, dan anomali  
+
+---
+
+## 🛠️ Instalasi
+
+Pastikan kamu sudah punya [Python 3](https://www.python.org/downloads/).  
+Lalu install dependensi:
 
 ```bash
 pip install PyPDF2
-```
-Karena kadang `pip` itu gak dikenali, bisa coba install pakai perintah ini:
+````
+
+Jika `pip` tidak terdeteksi:
 
 ```bash
 py -m pip install PyPDF2
 ```
-### 2. Jalankan Script
 
-Jalankan program di terminal / PowerShell:
+---
+
+## ▶️ Cara Menjalankan
+
+Jalankan di **Terminal / PowerShell / CMD**:
 
 ```bash
 py hitunghalamanpdf.py
 ```
 
-### 3. Masukkan Lokasi Folder
+Lalu ikuti instruksi interaktif di layar 👇
 
-Saat diminta, ketik atau paste lokasi folder tempat file PDF kamu disimpan. Contoh:
+### Contoh Input
 
-`Masukkan lokasi folder yang berisi file PDF:`
 ```
-D:\Arsip\Dokumen\Laporan Oktober 2025
+╔═══════════════════════════════════════════════╗
+║ Masukkan lokasi FOLDER ROOT yang berisi subfolder: ║
+╚═══════════════════════════════════════════════╝
+➡️  D:\Arsip\Dokumen
+
+Scan semua subfolder juga? (default: Y) [Y/n]:
+➡️  (tekan Enter)
+
+Pilih filter tanggal file PDF:
+1. Hanya yang diubah HARI INI
+2. Berdasarkan tanggal tertentu (contoh: 03-11-2025)
+➡️  2
+
+Masukkan tanggal (contoh: 07-11-2025):
+➡️  07-11-2025
 ```
 
 ---
@@ -52,49 +87,52 @@ D:\Arsip\Dokumen\Laporan Oktober 2025
 ## 📊 Contoh Output
 
 ```
-🔍 Sedang menghitung jumlah halaman setiap file...
+🗂️  Folder: Laporan Bulanan (Filter: 2025-11-07)
+──────────────────────────────────────────────
+- laporan1.pdf                      3 lembar
+- laporan2.pdf                      5 lembar
+✅ Tidak ada file yang hilang.
+✅ Tidak ada file duplikat terdeteksi.
+✅ Semua file konsisten dengan pola awal.
+✅ Pola numerik konsisten.
 
-laporan1.pdf: 2 halaman
-laporan2.pdf: 3 halaman
-laporan3.pdf: 1 halaman
-----------------------------------------
-Total file PDF: 3
-Total seluruh halaman: 6
+📊 REKAP AKHIR
+--------------------------------------------------
+Total semua file PDF berdasarkan pembuatan: 140
+Total modified file PDF: 15
+Total semua lembar: 275
+Total file hilang: 3
+Total file duplikat: 0
+Total file anomali: 0
+--------------------------------------------------
+📅 Dihitung otomatis oleh script legendaris: **ALDI WAS HERE 💪**
+🕓 Tuesday, 11 November 2025
 ```
+
+---
+
+## 💡 Catatan Penting
+
+* Filter tanggal menggunakan **tanggal pembuatan (created date)**
+  → File yang hanya dimodifikasi di tanggal itu **tidak dihitung di total utama**, tapi masuk **rekap tambahan**.
+* File PDF rusak atau terenkripsi bisa dilewati otomatis.
+* Gunakan terminal yang mendukung warna ANSI untuk tampilan berwarna 🌈
+* Dapat dijalankan di **Windows, macOS, dan Linux**.
 
 ---
 
 ## 🧩 Teknologi yang Digunakan
 
-* Python 3.9+
-* Library: [PyPDF2](https://pypi.org/project/PyPDF2/)
-
----
-
-## 📁 Struktur Folder
-
-```
-PDF-Page-Counter/
-│
-├── hitunghalamanpdf.py       # Script utama
-├── README.md                 # Dokumentasi proyek
-└── requirements.txt          # (opsional) daftar library yang dibutuhkan
-```
-
----
-
-## 💡 Catatan
-
-* Jalankan script dengan izin akses ke folder tujuan.
-* File PDF yang rusak atau terenkripsi mungkin tidak bisa dihitung.
-* Bisa dimodifikasi agar hasilnya disimpan ke file `.txt` atau `.csv`.
+* **Python 3.9+**
+* **Library:** [PyPDF2](https://pypi.org/project/PyPDF2/)
+* **ANSI Colors** untuk tampilan interaktif di terminal
 
 ---
 
 ## 🧑‍💻 Pembuat
 
 **Aldi Setiadi Putra**
-💬 SMK Negeri 3 Kota Tangerang Selatan
+📍 SMK Negeri 3 Kota Tangerang Selatan
 ✨ “Setiap halaman adalah cerita, dan setiap hitungan adalah makna.”
 
 ---
