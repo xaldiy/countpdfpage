@@ -1,5 +1,4 @@
 
-````markdown
 # 🧾 PDF Page Counter (Total Halaman Otomatis)
 
 Script Python canggih untuk menghitung **jumlah halaman dari semua file PDF** di dalam folder dan subfolder secara otomatis.  
